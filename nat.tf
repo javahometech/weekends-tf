@@ -1,6 +1,6 @@
 # Create NAT Instance
 resource "aws_instance" "nat" {
-  ami                         = "ami-00b3aa8a93dd09c13"
+  ami                         = "${lookup(var.nat_ami,var.region)}"
   instance_type               = "t2.micro"
   subnet_id                   = "${aws_subnet.webservers.*.id[0]}"
   source_dest_check           = false

@@ -1,7 +1,29 @@
+variable "region" {
+  default = "ap-south-1"
+}
+
 variable "vpc_cidr" {
   type        = "string"
   description = "Choose CIDR for VPC"
   default     = "10.0.0.0/16"
+}
+
+variable "nat_ami" {
+  type = "map"
+
+  default {
+    ap-south-1     = "ami-00b3aa8a93dd09c13"
+    ap-southeast-1 = "ami-0096082b44d750d5d"
+  }
+}
+
+variable "web_ami" {
+  type = "map"
+
+  default {
+    ap-south-1     = "ami-0ad42f4f66f6c1cc9"
+    ap-southeast-1 = "ami-0096082b44d750d5d"
+  }
 }
 
 variable "web_cidrs" {

@@ -1,5 +1,13 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = "${var.region}"
+}
+
+terraform {
+  backend "s3" {
+    bucket = "javahome-weekends-tf"
+    key    = "myapp/dev/terraform.tfstate"
+    region = "ap-south-1"
+  }
 }
 
 resource "aws_vpc" "myvpc" {
